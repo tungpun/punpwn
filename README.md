@@ -1,5 +1,5 @@
 # punpwn
-A wrapper of `pwntool` with `termcolor` support
+A wrapper of `pwntool` with `termcolor` support for personal purpose
 
 ## Requirements
 * python 2.7 on Linux (tested) / MacOS

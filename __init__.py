@@ -2,8 +2,8 @@ import pwn
 from termcolor import colored
 
 class PunPwn():
-    def __init__(self, host, port):
-        print "[+] Happy pwning !"
+    def __init__(self, host, port):        
+        print colored('>> Happy pwning !', 'cyan')
         self.conn = pwn.remote(host, port)
 
 
@@ -24,5 +24,5 @@ class PunPwn():
         self.conn.interactive()
 
 
-if __name__ == '__main__':
-    print "Happy pwning !"
+if __name__ == '__main__':    
+    print colored('>> Happy pwning !', 'cyan')
