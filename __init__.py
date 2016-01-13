@@ -3,6 +3,7 @@ from termcolor import colored
 
 class PunPwn():
     def __init__(self, host, port):
+        print "[+] Happy pwning !"
         self.conn = pwn.remote(host, port)
 
 
@@ -24,4 +25,4 @@ class PunPwn():
 
 
 if __name__ == '__main__':
-    print "Hello !"
+    print "Happy pwning !"
