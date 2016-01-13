@@ -1,6 +1,12 @@
 import pwn
 from termcolor import colored
 
+def p32(h):
+    return pwn.p32(h)
+
+def p64(h):
+    return pwn.p64(h)
+
 class PunPwn():
     def __init__(self, host, port):        
         print colored('>> Happy pwning !', 'cyan')
@@ -9,7 +15,7 @@ class PunPwn():
 
     def sent(self, s):
         self.conn.sendline(s)
-        print colored('[+] Sent: ' + s, 'yellow')
+        print colored('[+] Sent (' + str(len(s)) + ' bytes) : ' + s, 'yellow')
 
 
     def recvall(self):
