@@ -18,12 +18,39 @@ class PunPwn():
         print colored('[+] Sent (' + str(len(s)) + ' bytes) : ' + s, 'yellow')
 
 
+    def recv(self, size):
+        data = self.conn.recv(size)
+        print colored(data, 'green', 'on_grey')
+        return data
+
+    def recv_h(self, size):
+        data = self.conn.recv(size)
+        print colored(data.encode('hex'), 'green', 'on_grey')
+        return data
+
+
     def recvall(self):
-        print colored(self.conn.recvall(), 'green', 'on_grey')
-        
+        data = self.conn.recvall()
+        print colored(data, 'green', 'on_grey')
+        return data
     
+
+    def recvall_h(self):
+        data = self.conn.recvall()
+        print colored(data.encode('hex'), 'green', 'on_grey')
+        return data
+    
+
     def recvuntil(self, s):
-        print colored(self.conn.recvuntil(s), 'green', 'on_grey')
+        data = self.conn.recvuntil(s)
+        print colored(data, 'green', 'on_grey')
+        return data
+
+
+    def recvuntil_h(self, s):
+        data = self.conn.recvuntil(s)
+        print colored(data.encode('hex'), 'green', 'on_grey')
+        return data
 
 
     def interactive(self):
