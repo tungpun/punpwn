@@ -7,6 +7,12 @@ def p32(h):
 def p64(h):
     return pwn.p64(h)
 
+def u32(b):
+    return pwn.u32(b)
+
+def u64(h):
+    return pwn.u64(h)
+
 class PunPwn():
     def __init__(self, host, port):        
         print colored('>> Happy pwning !', 'cyan')
@@ -14,6 +20,7 @@ class PunPwn():
 
 
     def sent(self, s):
+        s = str(s)
         self.conn.sendline(s)
         print colored('[+] Sent (' + str(len(s)) + ' bytes) : ' + s, 'yellow')
 
