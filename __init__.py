@@ -1,4 +1,15 @@
+#!/usr/bin/python 2.7
+# 
+# punpwn
+# A wrapper of pwntool with termcolor support for personal purpose
+#
+# https://github.com/tungpun/punpwn
+#
+# Author: tungpun_
+#
+
 import pwn
+
 from termcolor import colored
 
 def p32(h):
