@@ -24,6 +24,28 @@ def u32(b):
 def u64(h):
     return pwn.u64(h)
 
+def xxw32(payload):    
+    # Padding
+    while len(payload) % 4 != 0:
+        payload += '\x00'
+
+    buffer = ''
+    for i in xrange(0, len(payload), 4):                
+        block = hex(u32(payload[i:i+4]))            
+        buffer += ('\n0x%0.4x | %s' % (i, block))        
+    print colored(buffer, 'magenta')
+
+def xxw64(payload):    
+    # Padding
+    while len(payload) % 8 != 0:
+        payload += '\x00'
+
+    buffer = ''
+    for i in xrange(0, len(payload), 8):                
+        block = hex(u64(payload[i:i+8]))            
+        buffer += ('\n0x%0.4x | %s' % (i, block))        
+    print colored(buffer, 'magenta')
+
 class PunPwn():
     def __init__(self, host, port):        
         print colored('>> Happy pwning !', 'cyan')
