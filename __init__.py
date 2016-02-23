@@ -12,6 +12,34 @@ import pwn
 
 from termcolor import colored
 
+def help():
+    function = """
+    [---------------------- Static ----------------------]
+
+    [+] p64(h) 
+    [+] u32(b) 
+    [+] u64(b) 
+    [+] xxw32(payload)
+    [+] xxw64(payload)
+    [+] embed(sub, big)
+    """
+    behavior = """
+    [-------------------- PunPwn obj --------------------]
+
+    [+] __init__(self, host, port)
+    [+] __init__(self, process_addr)
+    [+] sent(self, s)
+    [+] recv(self, size) 
+    [+] recv_h(self, size) 
+    [+] recvall(self) 
+    [+] recvall_h(self) 
+    [+] recvuntil(self, s) 
+    [+] recvuntil_h(self, s) 
+    [+] interactive(self) 
+    """    
+    print colored(function, 'magenta')    
+    print colored(behavior, 'cyan')    
+
 def p32(h):
     return pwn.p32(h)
 
@@ -46,10 +74,19 @@ def xxw64(payload):
         buffer += ('\n0x%0.4x | %s' % (i, block))        
     print colored(buffer, 'magenta')
 
+def embed(sub, big):    
+    big = sub + big[len(sub):]
+    return big
+
 class PunPwn():
     def __init__(self, host, port):        
         print colored('>> Happy pwning !', 'cyan')
         self.conn = pwn.remote(host, port)
+
+
+    def __init__(self, pdir):        
+        print colored('>> Happy pwning !', 'cyan')
+        self.conn = pwn.process(pdir)
 
 
     def sent(self, s):
